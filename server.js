@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const axios = require('axios');
 const fs = require('fs');
 
+const port = process.env.PORT || 2020;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -21,7 +23,7 @@ app.use((req,res,next)=>{
     
 });
 
-app.use((req, res) => {
+app.use((req, res, next) => {
     var now = new Date().toDateString();
     
     res.render('maintenance', {
@@ -75,6 +77,6 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.listen(2000, () => {
-    console.log('Server is up on port 2000')
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`)
 });
