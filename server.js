@@ -23,14 +23,14 @@ app.use((req,res,next)=>{
     
 });
 
-app.use((req, res, next) => {
-    var now = new Date().toDateString();
-    
-    res.render('maintenance', {
-        pageTitle: 'Maintenance Mode',
-        timeNow: now
-    });
-});
+//app.use((req, res, next) => {
+//    var now = new Date().toDateString();
+//    
+//    res.render('maintenance', {
+//        pageTitle: 'Maintenance Mode',
+//        timeNow: now
+//    });
+//});
 
 hbs.registerHelper('getCurrentYear', ()=> {
     return new Date().getFullYear()
